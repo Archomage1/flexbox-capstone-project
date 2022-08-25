@@ -4,9 +4,114 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+    <script src= "https://kit.fontawesome.com/fe8590a630.js" crossorigin="anonymous"></script>
+    <title>Flexbox Project</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        html{
+            font-family: 'Oxygen', sans-serif;
+        }
+        .navbar-container{
+            background: rgb(10, 109, 104);
+        }
+        .navbar-container div{
+            display: none;
+        }
+        .navbar-container .toggle,
+        .navbar-container .brand{
+            display: inline-block;
+        }
+        .navbar-container .link{
+            display: block;
+            text-align: center;
+            padding: 1em;
+            text-decoration: none;
+            background:lightblue ;
+            color: white;
+        }
+        .navbar-container .link:hover,
+        .navbar-container:active{
+            color: lightblue;
+            background: white;
+        }
+        .navbar-container .brand{
+            width: 10em;
+            text-align: center;
+            padding: 1em;
+            color: white;
+        }
+        .navbar-container a{
+            text-decoration: none;
+        }
+        .navbar-container .toggle{
+            padding: 1em;
+            color: black;
+        }
+        @media (min-width: 48em) {
+            .navbar-container {
+                display: flex;
+            }
+            .navbar-container div{
+                display: flex;
+            }
+            .navbar-container .left-navbar,
+            .navbar-container .right-navbar {
+                display: flex;
+                flex: 1;
+            }
+            .navbar-container .link {
+                width: auto;
+            }
+            .navbar-container .right-navbar {
+                justify-content: flex-end;
+            }
+            .navbar-container .toggle {
+                display: none;
+            }
+        }
+        @media (min-width: 48em) {
+            .navbar-container div {
+                display: flex;
+            }
+        }
+        @media (max-width: 48em) {
+            .navbar-container.active .toggle {
+                background: lightseagreen;
+                color: white;
+            }
+            .navbar-container .brand {
+                text-align: left;
+            }
+            .navbar-container.active div {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+        <div class="navbar-container">
+            <a href="#" class="toggle" id="navHamburger">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+            <a href="#" class="brand">MyName</a>
+            <div class="left-navbar">
+                <a href="#" class="link">Link 1</a>
+                <a href="#" class="link">Link 2</a>
+            </div>
+            <div class="right-navbar" >
+                <a href="#" class="link">Link 3</a>
+            </div>
+        </div>
 </body>
+<script>
+    const hamburger = document.querySelector('navHamburger');
+    navHamburger.addEventListener('click', (e) => {
+        navHamburger.parentElement.classList.toggle('active');
+    });
+</script>
 </html>
